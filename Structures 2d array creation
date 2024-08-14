@@ -1,0 +1,37 @@
+import java.util.Scanner;
+class ArrayOperations{
+    int n;
+    int arr[];
+    public ArrayOperations(int n){
+        this.n =n;
+    }
+    public void createarray(){
+        arr= new int[n];
+    }
+    public void insertData(){
+        Scanner sc = new Scanner(System.in);
+        for (int i =0; i<n;i++){
+            System.out.println("Enter Array Elements: "+ (i+1));
+            arr[i]=sc.nextInt();
+        }
+    }
+    public void display(){
+        System.out.print("Array Elements are: ");
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i]);
+            System.out.print(" ");
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter array size: ");
+		int n = sc.nextInt();
+		ArrayOperations ao = new ArrayOperations(n);
+		ao.createarray();
+		ao.insertData();
+		ao.display();
+	}
+}
