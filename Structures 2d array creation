@@ -1,25 +1,32 @@
 import java.util.Scanner;
 class ArrayOperations{
-    int n;
-    int arr[];
-    public ArrayOperations(int n){
-        this.n =n;
+    int row;
+    int col;
+    int arr[][];
+    public ArrayOperations(int row,int col){
+        this.row =row;
+        this.col= col;
     }
     public void createarray(){
-        arr= new int[n];
+        arr= new int[row][col];
     }
     public void insertData(){
         Scanner sc = new Scanner(System.in);
-        for (int i =0; i<n;i++){
-            System.out.println("Enter Array Elements: "+ (i+1));
-            arr[i]=sc.nextInt();
+        for (int i =0; i<row;i++){
+            System.out.println("Enter Array elements :");
+            for(int j=0;j<col;j++){
+                arr[i][j]=sc.nextInt();
+            }
         }
     }
     public void display(){
-        System.out.print("Array Elements are: ");
-        for(int i=0;i<n;i++){
-            System.out.print(arr[i]);
+        System.out.println("Array Elements are: ");
+        for(int i=0;i<row;i++){
+            for(int j =0;j<col;j++){
+            System.out.print(arr[i][j]);
             System.out.print(" ");
+            }
+            System.out.println();
         }
     }
 }
@@ -27,9 +34,11 @@ public class Main
 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter array size: ");
-		int n = sc.nextInt();
-		ArrayOperations ao = new ArrayOperations(n);
+		System.out.println("Enter row size: ");
+		int row = sc.nextInt();
+		System.out.println("Enter column size: ");
+		int col =sc.nextInt();
+		ArrayOperations ao = new ArrayOperations(row,col);
 		ao.createarray();
 		ao.insertData();
 		ao.display();
